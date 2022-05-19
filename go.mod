@@ -1,4 +1,4 @@
-module github.com/ionosphere.io/htmlswamp
+module github.com/ionosphere-io/htmlswamp
 
 go 1.18
 

@@ -1,4 +1,4 @@
-module github.com/ionosphere.io/htmlswamp/predicate
+module github.com/ionosphere-io/htmlswamp/predicate
 
 go 1.18
 
