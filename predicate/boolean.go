@@ -30,7 +30,7 @@ func (ap *AndPredicate) Match(n *html.Node) bool {
 func (ap *AndPredicate) Search(ctx context.Context, n *html.Node) []*html.Node {
 	nodesSeen := make(map[*html.Node]*[]bool)
 	if Debug {
-		log.Printf("And: Node %s", htmlNodeToString(n))
+		log.Printf("And: Node %s", HtmlNodeToString(n))
 	}
 
 	for i, p := range ap.Predicates {
@@ -44,10 +44,10 @@ func (ap *AndPredicate) Search(ctx context.Context, n *html.Node) []*html.Node {
 		if Debug {
 			nodesFoundString := make([]string, len(nodesFound))
 			for _, nodeFound := range nodesFound {
-				nodesFoundString = append(nodesFoundString, htmlNodeToString(nodeFound))
+				nodesFoundString = append(nodesFoundString, HtmlNodeToString(nodeFound))
 			}
 
-			log.Printf("And: Node %s, Predicate %v, nodesFound %s", htmlNodeToString(n), p, strings.Join(nodesFoundString, " "))
+			log.Printf("And: Node %s, Predicate %v, nodesFound %s", HtmlNodeToString(n), p, strings.Join(nodesFoundString, " "))
 		}
 
 		for _, nodeFound := range nodesFound {
@@ -75,7 +75,7 @@ nextNode:
 			// Fail if any predicate didn't match.
 			if !isMatch {
 				if Debug {
-					log.Printf("And: Node %s rejected by predicate %s", htmlNodeToString(node), ap.Predicates[i])
+					log.Printf("And: Node %s rejected by predicate %s", HtmlNodeToString(node), ap.Predicates[i])
 				}
 
 				continue nextNode
@@ -120,7 +120,7 @@ func (op *OrPredicate) Search(ctx context.Context, n *html.Node) []*html.Node {
 	nodesSeen := make(map[*html.Node]bool)
 
 	if Debug {
-		log.Printf("Or: Node %s", htmlNodeToString(n))
+		log.Printf("Or: Node %s", HtmlNodeToString(n))
 	}
 
 	for _, p := range op.Predicates {
@@ -134,10 +134,10 @@ func (op *OrPredicate) Search(ctx context.Context, n *html.Node) []*html.Node {
 		if Debug {
 			nodesFoundString := make([]string, len(nodesFound))
 			for _, nodeFound := range nodesFound {
-				nodesFoundString = append(nodesFoundString, htmlNodeToString(nodeFound))
+				nodesFoundString = append(nodesFoundString, HtmlNodeToString(nodeFound))
 			}
 
-			log.Printf("Or: Node %s, Predicate %v, nodesFound %s", htmlNodeToString(n), p, strings.Join(nodesFoundString, " "))
+			log.Printf("Or: Node %s, Predicate %v, nodesFound %s", HtmlNodeToString(n), p, strings.Join(nodesFoundString, " "))
 		}
 
 		for _, nodeFound := range nodesFound {

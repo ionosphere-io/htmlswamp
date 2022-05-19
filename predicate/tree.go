@@ -116,7 +116,7 @@ func (hdwp *HasDescendantWithPredicate) Search(ctx context.Context, n *html.Node
 		nodes = nodes[1:]
 
 		if Debug {
-			log.Printf("HasDescendant: %s.Search(%s)", hdwp.DescendantPredicate, htmlNodeToString(node))
+			log.Printf("HasDescendant: %s.Search(%s)", hdwp.DescendantPredicate, HtmlNodeToString(node))
 		}
 
 		result = append(result, hdwp.DescendantPredicate.Search(ctx, node)...)

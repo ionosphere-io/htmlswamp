@@ -8,7 +8,7 @@ import (
 
 var Debug = false
 
-func nodeTypeToString(nodeType html.NodeType) string {
+func NodeTypeToString(nodeType html.NodeType) string {
 	switch nodeType {
 	case html.ErrorNode:
 		return "ErrorNode"
@@ -29,7 +29,7 @@ func nodeTypeToString(nodeType html.NodeType) string {
 	}
 }
 
-func htmlNodeToString(n *html.Node) string {
+func HtmlNodeToString(n *html.Node) string {
 	switch n.Type {
 	case html.ElementNode:
 		result := fmt.Sprintf("<%s", n.Data)
@@ -44,6 +44,6 @@ func htmlNodeToString(n *html.Node) string {
 		if len(data) > 20 {
 			data = data[:20] + "..."
 		}
-		return fmt.Sprintf("%s(%q)", nodeTypeToString(n.Type), data)
+		return fmt.Sprintf("%s(%q)", NodeTypeToString(n.Type), data)
 	}
 }
